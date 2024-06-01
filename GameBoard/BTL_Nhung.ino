@@ -91,6 +91,8 @@ float speedUp, speedDown;
 float speedUpArray[] = {0.012, 0.021, 0.039, 0.07}, speedDownArray[] = {0.013, 0.02, 0.026, 0.03};
 unsigned long dinoTopTime = 0;
 unsigned int dinoTopDelay = 0;
+bool dinoState = true;
+unsigned long stateTime = 0;
 // ___________________________________________________
 
 void setup()
@@ -908,7 +910,25 @@ void DinosaurRun()
     display.drawString(3, 0, String(score));
     display.drawRect(0, 0, 128, 64);
 
-    display.drawXbm(playerX, playerY, TRex_width, TRex_height, TRex);
+    // display.drawXbm(playerX, playerY, TRex_width, TRex_height, TRex);
+    if (!isJumping && !isFalling) {
+      if (dinoState) {
+        display.drawXbm(playerX, playerY, TRex_width, TRex_height, TRex1);
+      } else {
+        display.drawXbm(playerX, playerY, TRex_width, TRex_height, TRex2);
+      }
+      if (stateTime == 0) {
+        stateTime = millis();
+      }
+    } else {
+      display.drawXbm(playerX, playerY, TRex_width, TRex_height, TRex);
+    }
+
+    if (millis() - 200 > stateTime) {
+      dinoState = !dinoState;
+      stateTime = 0;
+    }
+    
     for (int i = 0; i < 2; i++)
     {
       if (i == 0)
