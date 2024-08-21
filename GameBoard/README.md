@@ -42,7 +42,7 @@ git clone https://github.com/dang1407/ESP32_GAME.git
 - Trong màn hình chơi chính, nút bên trái dùng để di chuyển nhân vật sang trái hoặc lên và nút bên phải thì ngược lại.
 - Tốc độ của nhân vật được tăng lên mỗi khi số điểm chia hết cho 10.
 - Điểm của người chơi sẽ được tổng kết ở màn hình kết thúc. Ở đây bạn có thể bấm nút bên phải để quay lại màn hình bắt đầu.
-- **Hướng dẫn chung:**
+- **Hướng dẫn điều khiển chung:**
 
   1.  Bật ESP32 của bạn với game mà bạn muốn chơi.
 
